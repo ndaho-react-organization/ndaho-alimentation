@@ -1,7 +1,7 @@
 const NavBar = () => {
     return (
         <nav className="navbar orange navbar-expand-lg navbar-light bg-light fixed-top">
-            <a className="navbar-brand crimson" to="/">   <i class="fas fa-shopping-cart"></i> Alimentation Ndaho</a>
+            <a className="navbar-brand crimson" to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</a>
             <button
                 className="navbar-toggler"
                 type="button"

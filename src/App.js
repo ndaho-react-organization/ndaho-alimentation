@@ -1,4 +1,5 @@
 import NavBar from './components/NavBar';
+import Products from './components/Products';
 import SideMenu from './components/SideMenu';
 import './styles/App.css';
 
@@ -10,13 +11,10 @@ function App() {
         <div className="row">
           <SideMenu></SideMenu>
           <div className="col-sm">
-            Store
+            <Products/>
           </div>
         </div>
-
       </div>
-
-
     </>
   );
 }
