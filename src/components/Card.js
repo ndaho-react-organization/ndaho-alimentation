@@ -1,27 +1,30 @@
-const Card = () => {
+import Modal from "./Modal"
+const Card = ({ product,addTocart}) => {
     return (
         <div className="col-sm-4">
             <div className="card">
                 <img
                     width="170"
                     height="170"
-                    src={process.env.PUBLIC_URL + `/assets/0/citron.png`}
-                    alt="citroen"
+                    src={process.env.PUBLIC_URL + `/assets/${product.category}/${product.image}`}
+                    alt={product.name}
                 />
                 <div className="card-body">
                     <div className="row">
                         <div className="col-sm-6">
-                            <h4>Citron</h4>
+                            <h4>{product.name}</h4>
                         </div>
                         <div className="col-sm-6">
-                            <p>2.99/unit
-                </p>
-                            <button className="btn btn-warning btn-sm">view product</button>
+                            <p>{product.price}€/{product.unit}
+                            </p>
+                            <button className="btn btn-warning btn-sm" data-toggle="modal" data-target={`#${product.ref}`} >view product</button>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <Modal item={item} count={count}/> */}
+            {
+                <Modal item={product} addTocart = {addTocart}/>
+            }
         </div>
     );
 }

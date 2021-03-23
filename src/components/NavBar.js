@@ -1,4 +1,7 @@
-const NavBar = () => {
+import { useState } from "react";
+
+const NavBar = ({ textSearch, isTextSearch, cartCount }) => {
+
     return (
         <nav className="navbar orange navbar-expand-lg navbar-light bg-light fixed-top">
             <a className="navbar-brand crimson" to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</a>
@@ -22,8 +25,19 @@ const NavBar = () => {
                                 className="form-control mr-sm-2"
                                 type="search"
                                 placeholder="Search"
-                                aria-label="Search" />
+                                aria-label="Search"
+                                name="search"
+                                onChange={(event) => {
+                                    isTextSearch(event.target.value.length > 0)
+                                    textSearch(event.target.value)
+                                }}
+                            />
                         </form>
+                    </div>
+                    <div className="menu-right">
+                        <i className="fas fa-shopping-bag fa-2x"></i>
+                        <span className="badge badge-pill badge-success">{cartCount}</span>
+
                     </div>
                 </div>
             </div>
