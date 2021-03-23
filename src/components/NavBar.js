@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { Link }  from "react-router-dom";
 
 const NavBar = ({ textSearch, isTextSearch, cartCount }) => {
 
     return (
         <nav className="navbar orange navbar-expand-lg navbar-light bg-light fixed-top">
-            <a className="navbar-brand crimson" to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</a>
+            <Link className="navbar-brand crimson" exact to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</Link>
             <button
                 className="navbar-toggler"
                 type="button"
@@ -35,8 +35,11 @@ const NavBar = ({ textSearch, isTextSearch, cartCount }) => {
                         </form>
                     </div>
                     <div className="menu-right">
-                        <i className="fas fa-shopping-bag fa-2x"></i>
+                        <Link to="cart">
+                        <i className="fas fa-shopping-bag fa-2x grey"></i>
                         <span className="badge badge-pill badge-success">{cartCount}</span>
+                        </Link>
+                        
 
                     </div>
                 </div>

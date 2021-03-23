@@ -11,7 +11,7 @@ import Home from './views/Home'
 
 import { list } from './data'
 import { useEffect, useState } from 'react';
-import Cart from './views/Cart';
+import {CartPage} from './views/Cart';
 
 function App() {
 
@@ -42,7 +42,7 @@ function App() {
       <NavBar textSearch={handleOnTextSearch} isTextSearch={isTextSearch} cartCount={cartCount} />
       <Switch>
         <Route exact path="/" render={() => <Home filtiring={filtiring} filteredResult={filteredResults} addTocart={handleAddTocart} />} />
-        <Route exact path="/cart" render={() => <Cart />} />
+        <Route exact path="/cart" render={() => <CartPage />} />
         <Route render={() => <Erreur404 />} />
       </Switch>
     </Router>
