@@ -1,4 +1,11 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
 import NavBar from './components/NavBar';
+import Erreur404 from './components/Erreur404';
 import './styles/App.css';
 import Home from './views/Home'
 
@@ -31,11 +38,14 @@ function App() {
   }, [filtiring])
 
   return (
-    <>
+    <Router>
       <NavBar textSearch={handleOnTextSearch} isTextSearch={isTextSearch} cartCount={cartCount} />
-      <Home filtiring={filtiring} filteredResult={filteredResults} addTocart={handleAddTocart} />
-      <Cart></Cart>
-    </>
+      <Switch>
+        <Route exact path="/" render={() => <Home filtiring={filtiring} filteredResult={filteredResults} addTocart={handleAddTocart} />} />
+        <Route exact path="/cart" render={() => <Cart />} />
+        <Route render={() => <Erreur404 />} />
+      </Switch>
+    </Router>
   );
 }
 
