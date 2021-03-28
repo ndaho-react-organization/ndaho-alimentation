@@ -4,7 +4,7 @@ import SideMenu from '../../components/SideMenu';
 import { list } from '../../data'
 import { useState } from 'react';
 
-const Home = ({ filtiring, filteredResults, addTocart }) => {
+const Home = ({ filtiring, filteredResults }) => {
 
   const [category, searchCategory] = useState(0);
 
@@ -14,7 +14,7 @@ const Home = ({ filtiring, filteredResults, addTocart }) => {
         <div className="row">
           <SideMenu search={searchCategory} category={category} />
           <div className="col-sm">
-            <Products data={filtiring ? filteredResults : list[category]} searchCat={category} addTocart={addTocart} />
+            <Products data={filtiring ? filteredResults : list[category]} searchCat={category} />
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Modal from "./Modal"
-const Card = ({ product,addTocart}) => {
+const Card = ({ product}) => {
+
     return (
         <div className="col-sm-4">
             <div className="card">
@@ -23,7 +24,7 @@ const Card = ({ product,addTocart}) => {
                 </div>
             </div>
             {
-                <Modal item={product} addTocart = {addTocart}/>
+                <Modal item={product}/>
             }
         </div>
     );

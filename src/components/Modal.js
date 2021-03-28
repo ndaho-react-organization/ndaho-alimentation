@@ -1,8 +1,17 @@
 import { useState } from "react"
+import { useDispatch } from 'react-redux'
+import { addToCart } from "../lib/actions"
 
-const Modal = ({ item, addTocart }) => {
-    
+const Modal = ({ item }) => {
+
     const [qty, setQty] = useState(1);
+
+    const dispatch = useDispatch()
+
+    const handleAddTocart = (item, quantity) => {
+        dispatch(
+            addToCart(item, quantity))
+    }
 
     return (
         <div className="modal fade"
@@ -45,7 +54,7 @@ const Modal = ({ item, addTocart }) => {
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={() => addTocart(item, qty)}>Ajouter au panier</button>
+                            <button type="button" className="btn btn-primary" onClick={() => handleAddTocart(item, qty)}>Ajouter au panier</button>
                         </div>
                     </div>
                 </div>
