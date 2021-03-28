@@ -1,7 +1,8 @@
 import { useState } from "react"
 
 const Modal = ({ item, addTocart }) => {
-    const [count, setCount] = useState(1);
+    
+    const [qty, setQty] = useState(1);
 
     return (
         <div className="modal fade"
@@ -35,16 +36,16 @@ const Modal = ({ item, addTocart }) => {
                                 </p>
                                 <h3 className="price">€{item.price}/{item.unit}</h3>
                                 <div className="btn-group" role="group">
-                                    <button type="button" className="btn btn-secondary" onClick={() => count > 1 ? setCount(count - 1) : 1}>-</button>
-                                    <span className="btn btn-light qty">{count}</span>
-                                    <button type="button" className="btn btn-secondary" onClick={() => setCount(count + 1)}>+</button>
+                                    <button type="button" className="btn btn-secondary" onClick={() => qty > 1 ? setQty(qty - 1) : 1}>-</button>
+                                    <span className="btn btn-light qty">{qty}</span>
+                                    <button type="button" className="btn btn-secondary" onClick={() => setQty(qty + 1)}>+</button>
                                 </div>
                                 <br />
                             </div>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" className="btn btn-primary" onClick={() => addTocart(count)}>Ajouter au panier</button>
+                            <button type="button" className="btn btn-primary" onClick={() => addTocart(item, qty)}>Ajouter au panier</button>
                         </div>
                     </div>
                 </div>

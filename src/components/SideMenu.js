@@ -7,7 +7,8 @@ const SideMenu = ({ search, category }) => {
             <ul>
                 {
                     links.map((link, index) => {
-                        return (<li className={category===index && 'active'} onClick={() => search(index)} key={link}>{link}</li>)
+                        const active = category === index ? "active" : "";
+                        return (<li className={active} onClick={() => search(index)} key={link}>{link}</li>)
                     })
                 }
             </ul>

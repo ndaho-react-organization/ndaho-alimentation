@@ -4,23 +4,24 @@ import {
   Route,
 } from "react-router-dom";
 
-import NavBar from './components/NavBar';
-import Erreur404 from './components/Erreur404';
-import './styles/App.css';
-import Home from './views/Home'
+import NavBar from '../../components/NavBar';
+import Erreur404 from '../../components/Erreur404';
+import '../../styles/App.css';
+import Home from './Home'
 
-import { list } from './data'
-import { useEffect, useState } from 'react';
-import {CartPage} from './views/Cart';
+import { list } from '../../data'
+import { useState } from 'react';
+import { CartPage } from './Cart';
 
-function App() {
+const App = props => {
+
+  const { items, onAddToCart, onUpdateCart } = props
 
   const [filtiring, isTextSearch] = useState(false);
   const [filteredResults, setSearchText] = useState([]);
-  const [cartCount, setCartCount] = useState(0);
 
-  const handleAddTocart = count => {
-    setCartCount(cartCount + count)
+  const handleAddTocart = (item, quantity) => {
+    onAddToCart(item, quantity)
   }
 
   const handleOnTextSearch = input => {
@@ -33,13 +34,9 @@ function App() {
     setSearchText(results)
   }
 
-  useEffect(() => {
-    //
-  }, [filtiring])
-
   return (
     <Router>
-      <NavBar textSearch={handleOnTextSearch} isTextSearch={isTextSearch} cartCount={cartCount} />
+      <NavBar textSearch={handleOnTextSearch} isTextSearch={isTextSearch} />
       <Switch>
         <Route exact path="/" render={() => <Home filtiring={filtiring} filteredResult={filteredResults} addTocart={handleAddTocart} />} />
         <Route exact path="/cart" render={() => <CartPage />} />

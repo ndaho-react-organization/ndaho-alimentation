@@ -4,7 +4,7 @@ const NavBar = ({ textSearch, isTextSearch, cartCount }) => {
 
     return (
         <nav className="navbar orange navbar-expand-lg navbar-light bg-light fixed-top">
-            <Link className="navbar-brand crimson" exact to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</Link>
+            <Link className="navbar-brand crimson" to="/">   <i className="fas fa-shopping-cart"></i> Alimentation Ndaho</Link>
             <button
                 className="navbar-toggler"
                 type="button"

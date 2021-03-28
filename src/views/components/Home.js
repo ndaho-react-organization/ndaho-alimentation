@@ -1,12 +1,11 @@
-import Products from '../components/Products';
-import SideMenu from '../components/SideMenu';
-import '../styles/App.css';
+import Products from '../../components/Products';
+import SideMenu from '../../components/SideMenu';
 
-import { list } from '../data'
+import { list } from '../../data'
 import { useState } from 'react';
 
 const Home = ({ filtiring, filteredResults, addTocart }) => {
-  
+
   const [category, searchCategory] = useState(0);
 
   return (
